@@ -1,0 +1,24 @@
+.book-item {
+  background-color: #F2F2F2;
+}
+
+.main-book-item {
+  align-items: flex-start;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #acb1b8;
+}
+
+.pic {
+  display: flex;
+  justify-content: center;
+}
+
+.info-book {
+  padding-top: 15px;
+}
+
+/* @media (max-width: 769px) {
+  .book-pic {
+    height: 250px;
+  }
+} */
