@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../style/SearchForm.css';
+import Axios from 'axios';
 
-export const SearchForm = () => {
+export const SearchForm = (props) => {
+  const {callbackSearchingWord} = props;
+  const [searchingWord, setSearchingWord] = useState('');
+  const [debouncedText, setDebouncedText] = useState('');
 
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      const replacedTitle = searchingWord.split(' ').join('+');
+      setDebouncedText(replacedTitle);
+    },500);
+
+    return () => {
+      clearTimeout(timerId);
+    }
+  }, [searchingWord])
+
+  useEffect(() => {
+    const search = async () => {
+      const { data } = await Axios.get('http://openlibrary.org/search.json', {
+        params: {
+          title: debouncedText
+        },
+      });
+
+      callbackSearchingWord(data);
+
+    }
+    if (debouncedText !== '') {
+      search();
+    }
+    
+  }, [debouncedText]); 
 
   return (
     <div className="search-form container">
@@ -15,7 +46,14 @@ export const SearchForm = () => {
         <div className="col-md-8">
           <form>
             <div className="form-group">
-              <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Wyszukaj książkę lub autora..."/>
+              <input 
+                value={searchingWord}
+                onChange={(e) => setSearchingWord(e.target.value)}
+                type="email" 
+                className="form-control" 
+                id="exampleFormControlInput1" 
+                placeholder="Wyszukaj książkę lub autora..."
+              />
             </div>
           </form>
         </div>

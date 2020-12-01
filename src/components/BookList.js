@@ -4,7 +4,7 @@ import '../style/BookList.css';
 
 export const BookList = (props) => {
   const {books} = props;
-
+  console.log(books);
   const renderedBookInfo = books.map((book, index) => {
     return (
       <BookItem

@@ -6,11 +6,16 @@
   align-items: flex-start;
   padding-bottom: 35px;
   border-bottom: 1px solid #acb1b8;
+  margin-bottom: 30px;
 }
 
 .pic {
   display: flex;
   justify-content: center;
+}
+
+.book-pic {
+  height: 200px;
 }
 
 .info-book {
