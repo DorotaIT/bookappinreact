@@ -35,21 +35,30 @@ export const SearchForm = (props) => {
     
   }, [debouncedText]); 
 
+  const handleEnterKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+ 
+      return false;
+    }
+  }
+
   return (
     <div className="search-form container">
       <div className="row main-search-form">
-        <div className="col-md-4">
+        <div className="col-md-3 whole-logo">
           <div className="main-logo">
             <h4 className="logo-text">BookApp</h4>
           </div>
         </div>
-        <div className="col-md-8">
+        <div className="col-md-9">
           <form>
             <div className="form-group">
               <input 
                 value={searchingWord}
                 onChange={(e) => setSearchingWord(e.target.value)}
-                type="email" 
+                onKeyPress={handleEnterKeyPress}
+                type="text" 
                 className="form-control" 
                 id="exampleFormControlInput1" 
                 placeholder="Wyszukaj książkę lub autora..."

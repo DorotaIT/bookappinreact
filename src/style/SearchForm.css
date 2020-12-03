@@ -5,6 +5,10 @@
   background-color: #D9D9D9;
 }
 
+.whole-logo {
+  padding-left: 85px;
+}
+
 .main-logo {
   display: flex;
   justify-content: center;
