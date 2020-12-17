@@ -4,39 +4,7 @@ import cover from "../assets/img/defaultcover.jpeg";
 
 export const BookItem = ({book}) => {
 
-  const getFormatedDataOfBooks = (booksData) => {
-    const newFormatedDataOfBooks = booksData.map((bookData, index) => {
-
-      const isOnlyOneElement = booksData.length === 1;
-      const isLastElement = booksData.length - 1 === index;
-
-      if (isOnlyOneElement || isLastElement) {
-        return bookData;
-      };
-
-      return bookData + ", ";
-      
-    });
-
-    return newFormatedDataOfBooks;
-  }
-
-  // const getFormatedPublishYear = (publishYears) => {
-  //   const newFormatedPublishYears = publishYears.map((year, index) => {
-
-  //     const isOnlyOneElement = publishYears.length === 1;
-  //     const isLastElement = publishYears.length - 1 === index;
-
-  //     if (isOnlyOneElement || isLastElement) {
-  //       return year;
-  //     };
-
-  //     return year + ", ";
-      
-  //   });
-
-  //   return newFormatedPublishYears;
-  // }
+  const getFormattedDataOfBooks = (booksData) => booksData.join(", ");
 
   return (
     <div className="book-item container">
@@ -60,10 +28,10 @@ export const BookItem = ({book}) => {
           </div>
           <div>
             {book.publish_year &&
-              <p>Data wydania: {getFormatedDataOfBooks(book.publish_year)}</p>
+              <p>Data wydania: {getFormattedDataOfBooks(book.publish_year)}</p>
             }
             {book.publisher &&
-            <p>Wydawnictwo: {getFormatedDataOfBooks(book.publisher)}</p>
+            <p>Wydawnictwo: {getFormattedDataOfBooks(book.publisher)}</p>
             }
           </div>
         </div>
