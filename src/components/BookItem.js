@@ -24,7 +24,9 @@ export const BookItem = ({book}) => {
         <div className="col-sm-8 col-md-9 info-book">
           <div>
             <h5>{book.title}</h5>
-            <h6>{book.author_name}</h6>
+            {book.author_name &&
+            <h6>{getFormattedDataOfBooks(book.author_name)}</h6>
+            }
           </div>
           <div>
             {book.publish_year &&
@@ -34,8 +36,36 @@ export const BookItem = ({book}) => {
             <p>Wydawnictwo: {getFormattedDataOfBooks(book.publisher)}</p>
             }
           </div>
+          
+      <div className="more-book-info-button">
+        <button 
+          className="btn btn-primary" 
+          type="button" 
+          data-toggle="collapse" 
+          data-target="#collapseExample" 
+          aria-expanded="false" 
+          aria-controls="collapseExample">
+            Button with data-target
+        </button>
+        <div className="collapse" id="collapseExample">
+          <div className="card card-body">
+            {book.isbn &&
+              <p>ISBN: {getFormattedDataOfBooks(book.isbn)}</p>
+            }
+             {book.subject &&
+              <p>Tagi: {getFormattedDataOfBooks(book.subject)}</p>
+            }
+          </div>
         </div>
       </div>
+
     </div>
+  </div>
+
+  
+      
+      
+   
+</div>
   );
 };

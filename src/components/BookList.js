@@ -16,8 +16,15 @@ export const BookList = (props) => {
 )
   
   return (
-    <div className="book-list">
-      {renderedBookInfo}
+    <div>
+      {books.length
+      ? <div className="book-list">
+          {renderedBookInfo}
+      </div>
+      : <div className="no-results">
+        <h5>Brak wyników wyszukiwania.</h5>
+      </div>
+        }
     </div>
   );
 };

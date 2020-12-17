@@ -22,8 +22,22 @@
   padding-top: 15px;
 }
 
-/* @media (max-width: 769px) {
-  .book-pic {
-    height: 250px;
+.more-book-info-button {
+  margin-top: 45px;
+}
+
+@media (max-width: 767px) {
+  .more-book-info-button {
+    margin-top: 30px;
   }
-} */
+  .main-search-form {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .more-book-info-button {
+    margin-top: 30px;
+  }
+}
