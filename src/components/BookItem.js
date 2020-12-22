@@ -42,12 +42,12 @@ export const BookItem = ({book}) => {
           className="btn btn-primary" 
           type="button" 
           data-toggle="collapse" 
-          data-target="#collapseExample" 
+          data-target={`#cover${book.cover_i}`}
           aria-expanded="false" 
-          aria-controls="collapseExample">
-            Button with data-target
+          aria-controls={`cover${book.cover_i}`}>
+            Więcej szczegółów
         </button>
-        <div className="collapse" id="collapseExample">
+        <div className="collapse" id={`cover${book.cover_i}`}>
           <div className="card card-body">
             {book.isbn &&
               <p>ISBN: {getFormattedDataOfBooks(book.isbn)}</p>

@@ -5,7 +5,7 @@ import Axios from 'axios';
 export const SearchForm = (props) => {
   const {callbackSearchingWord} = props;
   const [searchingWord, setSearchingWord] = useState('');
-  const [debouncedText, setDebouncedText] = useState('');
+  const [debouncedText, setDebouncedText] = useState('Dark materials');
 
   useEffect(() => {
     const timerId = setTimeout(() => {
