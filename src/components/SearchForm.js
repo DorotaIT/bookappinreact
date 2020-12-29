@@ -1,20 +1,24 @@
+import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import '../style/SearchForm.css';
-import Axios from 'axios';
+import { Spinner } from './Spinner';
 
 export const SearchForm = (props) => {
   const {callbackSearchingWord} = props;
   const [searchingWord, setSearchingWord] = useState('');
   const [debouncedText, setDebouncedText] = useState('Dark materials');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
       const replacedTitle = searchingWord.split(' ').join('+');
+      setIsLoading(true);
       setDebouncedText(replacedTitle);
     },500);
 
     return () => {
       clearTimeout(timerId);
+      setIsLoading(true);
     }
   }, [searchingWord])
 
@@ -27,6 +31,7 @@ export const SearchForm = (props) => {
       });
 
       callbackSearchingWord(data);
+      setIsLoading(false);
 
     }
     if (debouncedText !== '') {
@@ -52,19 +57,22 @@ export const SearchForm = (props) => {
           </div>
         </div>
         <div className="col-md-9">
-          <form>
-            <div className="form-group">
+          <label className="sr-only" for="inlineFormInputGroupUsername">Username</label>
+            <div className="input-group">
               <input 
                 value={searchingWord}
                 onChange={(e) => setSearchingWord(e.target.value)}
                 onKeyPress={handleEnterKeyPress}
                 type="text" 
-                className="form-control" 
-                id="exampleFormControlInput1" 
+                className="form-control col-md-9" 
+                id="inlineFormInputGroupUsername" 
                 placeholder="Wyszukaj książkę lub autora..."
               />
-            </div>
-          </form>
+              {isLoading
+                ?<Spinner/>
+                : <></>
+              }
+          </div>
         </div>
       </div>
     </div>

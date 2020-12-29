@@ -4,7 +4,7 @@ import '../style/BookList.css';
 
 export const BookList = (props) => {
   const {books} = props;
-  console.log(books);
+
   const renderedBookInfo = books.map((book, index) => {
     return (
       <BookItem
@@ -17,14 +17,16 @@ export const BookList = (props) => {
   
   return (
     <div>
-      {books.length
-      ? <div className="book-list">
-          {renderedBookInfo}
+      <div>
+        {books.length
+        ? <div className="book-list">
+            {renderedBookInfo}
+        </div>
+        : <div className="no-results">
+          <h5>Brak wyników wyszukiwania.</h5>
+        </div>
+          }
       </div>
-      : <div className="no-results">
-        <h5>Brak wyników wyszukiwania.</h5>
-      </div>
-        }
     </div>
   );
 };

@@ -23,3 +23,11 @@
 .logo-text {
   font-weight: bold;
 }
+
+.input-group-text {
+  padding-left: none;
+}
+
+.input-group-text {
+  height: 33.5px;
+}
