@@ -2,7 +2,7 @@ import React from 'react';
 import '../style/BookItem.css';
 import cover from "../assets/img/defaultcover.jpeg";
 
-export const BookItem = ({book}) => {
+export const BookItem = ({book, id}) => {
 
   const getFormattedDataOfBooks = (booksData) => booksData.join(", ");
 
@@ -42,12 +42,12 @@ export const BookItem = ({book}) => {
           className="btn btn-primary" 
           type="button" 
           data-toggle="collapse" 
-          data-target={`#cover${book.cover_i}`}
+          data-target={`#cover${id}`}
           aria-expanded="false" 
-          aria-controls={`cover${book.cover_i}`}>
+          aria-controls={`cover${id}`}>
             Więcej szczegółów
         </button>
-        <div className="collapse" id={`cover${book.cover_i}`}>
+        <div className="collapse" id={`cover${id}`}>
           <div className="card card-body">
             {book.isbn &&
               <p>ISBN: {getFormattedDataOfBooks(book.isbn)}</p>

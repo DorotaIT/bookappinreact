@@ -9,6 +9,7 @@ export const BookList = (props) => {
     return (
       <BookItem
         key={index}
+        id={index}
         book={book}
       />
     );
