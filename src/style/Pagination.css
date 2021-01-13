@@ -1,0 +1,29 @@
+.main-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 25px;
+}
+
+.arrow-icon {
+  font-size: 20px;
+  color: #545557;
+}
+
+.page-link:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #D9D9D9;
+}
+
+.page-item a {
+  color: #343a40;
+}
+
+li .active {
+  color: red;
+}

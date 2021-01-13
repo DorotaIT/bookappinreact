@@ -32,11 +32,12 @@ export const SearchForm = (props) => {
 
       callbackSearchingWord(data);
       setIsLoading(false);
-
-    }
+    };
     if (debouncedText !== '') {
-      search();
-    }
+      search();   
+    } else if (debouncedText === '') {
+      setIsLoading(false);
+    };
     
   }, [debouncedText]); 
 
