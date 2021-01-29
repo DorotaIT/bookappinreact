@@ -3,11 +3,10 @@ import { SearchForm } from './SearchForm';
 import { BookList } from './BookList'; 
 
 export const BookSearchPage = () => {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState(null);
 
   const callbackSearchingWord = (responseBooks) => {
     setBooks(responseBooks.docs);
-    console.log(responseBooks.docs);
   }
 
   return (
@@ -15,9 +14,13 @@ export const BookSearchPage = () => {
       <SearchForm
       callbackSearchingWord={callbackSearchingWord}
       />
-      <BookList 
+      {books !== null
+      ? <BookList 
       books={books}
       />
+      : <></>
+    }
+      
     </div>
   );
 };

@@ -26,6 +26,13 @@
   margin-top: 45px;
 }
 
+.book-info-button, .book-info-button:active, .book-info-button:hover, .book-info-button:focus {
+  background-color: #747474 !important;
+  border-color: #747474 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
 @media (max-width: 767px) {
   .more-book-info-button {
     margin-top: 30px;

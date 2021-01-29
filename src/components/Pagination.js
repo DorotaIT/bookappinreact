@@ -5,7 +5,7 @@ import '../style/Pagination.css';
 
 export const Pagination = ({ booksPerPage, totalBooks, paginate, currentPage }) => {
   const pageNumbers = [];
-
+ console.log("totalbooks", totalBooks)
   for (let i = 1; i <= Math.ceil(totalBooks / booksPerPage); i++) {
     pageNumbers.push(i);
   }

@@ -39,7 +39,7 @@ export const BookItem = ({book, id}) => {
           
       <div className="more-book-info-button">
         <button 
-          className="btn btn-primary" 
+          className="btn btn-primary book-info-button" 
           type="button" 
           data-toggle="collapse" 
           data-target={`#cover${id}`}

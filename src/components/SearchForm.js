@@ -7,7 +7,7 @@ export const SearchForm = (props) => {
   const {callbackSearchingWord} = props;
   const [searchingWord, setSearchingWord] = useState('');
   const [debouncedText, setDebouncedText] = useState('Dark materials');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -18,7 +18,6 @@ export const SearchForm = (props) => {
 
     return () => {
       clearTimeout(timerId);
-      setIsLoading(true);
     }
   }, [searchingWord])
 
