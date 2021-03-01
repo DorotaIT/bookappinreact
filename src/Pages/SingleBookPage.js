@@ -25,7 +25,7 @@ export const SingleBookPage = () => {
 
     search();
 
-  }, []);
+  }, [isbn]);
 
   useEffect(() => {
     if (singleBookResponse !== '') {
@@ -58,7 +58,7 @@ export const SingleBookPage = () => {
   const renderAuthors = () => (
     singleBookResponse.authors.map((author, index, authors) => (
       <li className="authors-li">
-        <a target="_blank" href={author.url}>{author.name}{getCommaOnIndex(index, authors)} </a>
+        <a target="_blank" rel="noreferrer" href={author.url}>{author.name}{getCommaOnIndex(index, authors)} </a>
       </li>
     ))
   )
@@ -69,8 +69,8 @@ export const SingleBookPage = () => {
           <div className="rendered-book-row row">
             <div className="rendered-pic col-sm-3">
               {getCoverImageUrlFromResponse()
-                ? <img src={getCoverImageUrlFromResponse()}/>
-                : <img className="img-fluid book-pic"  src={cover}/>
+                ? <img alt={singleBookResponse.title} src={getCoverImageUrlFromResponse()}/>
+                : <img className="img-fluid book-pic" alt={singleBookResponse.title} src={cover}/>
               }
             </div>
             <div className="rendered-book-info col-sm-9">
@@ -80,7 +80,7 @@ export const SingleBookPage = () => {
               <p>Number of pages: {singleBookResponse.number_of_pages}</p>
               <p>Publish date: {singleBookResponse.publish_date}</p>
               <p className="book-isbn">Book ISBN: {isbn}</p>
-              <a className="book-url" target="_blank" href={singleBookResponse.url}>See more on OpenLibrary website</a>
+              <a className="book-url" target="_blank" rel="noreferrer" href={singleBookResponse.url}>See more on OpenLibrary website</a>
             </div>
           </div>
         </div>
@@ -99,6 +99,7 @@ export const SingleBookPage = () => {
         ? renderSpinner()
         : renderBook()
       }
+
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BookItem } from './BookItem';
 import { Pagination } from './Pagination';
 import '../style/BookList.css';

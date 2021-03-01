@@ -38,7 +38,7 @@ export const SearchForm = (props) => {
     if (debouncedText !== '') {
       search();
     }
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedText]); 
 
   const handleEnterKeyPress = (event) => {
