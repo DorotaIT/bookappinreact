@@ -1,0 +1,55 @@
+.rendered-single-book {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-top: 35px;
+  border-bottom: 1px solid #acb1b8;
+}
+
+.rendered-book-row {
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.rendered-pic {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.publisher-space {
+  margin-top: 20px;
+}
+
+.authors-li {
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.author-ul {
+  padding-left: 0px;
+}
+
+.render-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 100px;
+}
+
+@media (max-width: 572px) {
+  .rendered-single-book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rendered-book-info {
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    align-items: left;
+    margin-top: 30px;
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style/BookItem.css';
 import cover from "../assets/img/defaultcover.jpeg";
+import { Link } from 'react-router-dom';
 
 export const BookItem = ({book, id}) => {
 
@@ -10,20 +11,29 @@ export const BookItem = ({book, id}) => {
     <div className="book-item container">
       <div className="row main-book-item">
         <div className="col-sm-4 col-md-3 pic">
+          {/* todo refactor if statement with book.cover.i */}
           {book.cover_i
-            ? <img 
+            ? <Link className="book-link" to={`/book/${book.isbn ? book.isbn[0] : ''}`}>
+            <img 
                 className="img-fluid book-pic" 
                 src={`http://covers.openlibrary.org/b/id/${book.cover_i}.jpg`}
+                alt="book"
             />
-            : <img
-                className="img-fluid book-pic" 
-                src={cover}
-              />
+            </Link>
+          : <Link to={`/book/${book.isbn ? book.isbn[0] : ''}`}>
+                <img
+                  className="img-fluid book-pic" 
+                  src={cover}
+                  alt="alternative-book"
+                />
+              </Link>
           }
         </div>
         <div className="col-sm-8 col-md-9 info-book">
           <div>
-            <h5>{book.title}</h5>
+            <Link className="book-link" to={`/book/${book.isbn ? book.isbn[0] : ''}`}>
+              <h5 className="book-title">{book.title}</h5>
+            </Link>
             {book.author_name &&
             <h6>{getFormattedDataOfBooks(book.author_name)}</h6>
             }
@@ -61,11 +71,6 @@ export const BookItem = ({book, id}) => {
 
     </div>
   </div>
-
-  
-      
-      
-   
 </div>
   );
 };

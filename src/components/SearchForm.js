@@ -6,15 +6,18 @@ import { Spinner } from './Spinner';
 export const SearchForm = (props) => {
   const {callbackSearchingWord} = props;
   const [searchingWord, setSearchingWord] = useState('');
-  const [debouncedText, setDebouncedText] = useState('Dark materials');
+  const [debouncedText, setDebouncedText] = useState('Szeptacz');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timerId = setTimeout(() => {
-      const replacedTitle = searchingWord.split(' ').join('+');
-      setIsLoading(true);
-      setDebouncedText(replacedTitle);
-    },500);
+    let timerId = 0;
+    if (searchingWord !== "") {
+      timerId = setTimeout(() => {
+        const replacedTitle = searchingWord.split(' ').join('+');
+        setIsLoading(true);
+        setDebouncedText(replacedTitle);
+      },500);
+    }
 
     return () => {
       clearTimeout(timerId);
@@ -25,18 +28,16 @@ export const SearchForm = (props) => {
     const search = async () => {
       const { data } = await Axios.get('http://openlibrary.org/search.json', {
         params: {
-          title: debouncedText
+          q: debouncedText
         },
       });
 
-      callbackSearchingWord(data);
       setIsLoading(false);
+      callbackSearchingWord(data);
     };
     if (debouncedText !== '') {
-      search();   
-    } else if (debouncedText === '') {
-      setIsLoading(false);
-    };
+      search();
+    }
     
   }, [debouncedText]); 
 
@@ -57,7 +58,7 @@ export const SearchForm = (props) => {
           </div>
         </div>
         <div className="col-md-9">
-          <label className="sr-only" for="inlineFormInputGroupUsername">Username</label>
+          <label className="sr-only" htmlFor="inlineFormInputGroupUsername">Username</label>
             <div className="input-group">
               <input 
                 value={searchingWord}

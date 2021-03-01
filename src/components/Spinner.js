@@ -5,8 +5,8 @@ export const Spinner = () => {
   return (
     <div className="input-group-prepend">
       <div className="input-group-text">
-        <div class="spinner-border spinner-border-sm text-secondary" role="status">
-          <span class="sr-only">Loading...</span>
+        <div className="spinner-border spinner-border-sm text-secondary" role="status">
+          <span className="sr-only">Loading...</span>
         </div>
       </div>
     </div>

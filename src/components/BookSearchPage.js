@@ -8,7 +8,7 @@ export const BookSearchPage = () => {
   const callbackSearchingWord = (responseBooks) => {
     setBooks(responseBooks.docs);
   }
-
+console.log("books", books)
   return (
     <div>
       <SearchForm

@@ -33,6 +33,15 @@
   outline: none !important;
 }
 
+.book-title {
+  color: #212529;
+}
+
+.book-link:hover {
+  text-decoration: none;
+}
+
+
 @media (max-width: 767px) {
   .more-book-info-button {
     margin-top: 30px;
